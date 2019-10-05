@@ -2,8 +2,9 @@
   "name": "kanondl-bot",
   "version": "0.0.1",
   "description": "Telegram Bot with download video/audio from Youtube, niconico",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
+    "start": "node src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
