@@ -1,9 +1,12 @@
 {
-    "introduction": "Happy, Lucky, Smile, Yay! 👋 \n\nKanonBot는 Youtube, Niconico 등 여러 곳에서 음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n /다운로드 링크 로 시작할 수 있어요.\n도움말을 보시려면 /도움말 을 입력해주세요.",
-    "help": "Happy, Lucky, Smile, Yay! 👋 \n\nKanonBot는 Youtube, Niconico 등 여러 곳에서 음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n도움말은 현재 작성중이예요. 잠시만 기다려주세요!",
+    "introduction": "Happy, Lucky, Smile, Yay! 👋 \n\nKanonBot은 Youtube, Niconico 등 여러 곳에서 음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n /다운로드 링크 로 시작할 수 있어요.\n도움말을 보시려면 /도움말 을 입력해주세요.",
+    "help": "Happy, Lucky, Smile, Yay! 👋 \n\nKanonBot은 Youtube, Niconico 등 여러 곳에서 음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n도움말은 현재 작성중이예요. 잠시만 기다려주세요!",
     "author": "제작자 정보: Pyxis (WindSekirun), @WindSekirun, windsekirun@gmail.com",
     "issue": "이슈트래커 https://github.com/WindSekirun/KanonDL-Bot/issues 를 이용하시거나, 직접 제작자 @WindSekirun 에 문의주세요.",
-    "linkerror": "유효한 링크가 아닌 것 같아요.",
+    "linkerror": "유효한 링크가 아닌 것 같아요. 다시 확인해주세요! 🙊",
     "ackready": "좋아요, 다운로드를 시작할게요!",
-    "filereadyaudio": "음악이 준비되었어요. 바로 전송할게요!"
+    "selectdownload": "다운로드 받을 파일을 선택해주세요.",
+    "filereadyaudio": "음악이 준비되었어요. 바로 전송할게요!",
+    "wantmovie": "🍿 영상을 받고 싶어요!",
+    "wantmusic": "🎵 음악을 받고 싶어요!"
 }

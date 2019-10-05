@@ -7,10 +7,18 @@ Promise.config({
 });
 
 class TextMatchModel {
-    constructor(chatId, msg, match) {
+    constructor(chatId, msg, matchResult) {
         this.chatId = chatId
         this.msg = msg
-        this.match = match
+        this.matchResult = matchResult
+    }
+}
+
+class CallbackQueryModel {
+    constructor(chatId, data, callbackData) {
+        this.chatId = chatId
+        this.data = data
+        this.callbackData = callbackData
     }
 }
 
@@ -25,10 +33,21 @@ bot.on('polling_error', (err) => {
 function textMatch(pattern) {
     return new Promise((resolve, reject) => {
         bot.onText(pattern, (msg, match) => {
+            console.log(msg)
             resolve(new TextMatchModel(msg.chat.id, msg, match))
         })
     });
 };
 
+function callbackQuery() {
+    return new Promise((resolve, reject) => {
+        bot.on("callback_query", (data) => {
+            console.log(data)
+            resolve(new CallbackQueryModel(data.from.id, data, data.data))
+        });
+    })
+}
+
 module.exports.textMatch = textMatch
+module.exports.callbackQuery = callbackQuery
 module.exports.TelegramBot = bot
