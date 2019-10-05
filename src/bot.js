@@ -1,4 +1,5 @@
-const promise = require('./promiseBot.js')
+const fs = require('fs');
+const promise = require('./telegramBot.js')
 const wrapper = require('./wrapper.js');
 const message = require('../message.json');
 
@@ -16,23 +17,22 @@ promise.textMatch(/\/start/)
         bot.sendMessage(model.chatId, message.introduction)
     });
 
-promise.textMatch(/\/도움말/)
+promise.textMatch(/\/help/)
     .then((model) => {
         bot.sendMessage(model.chatId, message.help)
     });
 
-promise.textMatch(/\/제작자/)
+promise.textMatch(/\/author/)
     .then((model) => {
         bot.sendMessage(model.chatId, message.author)
     });
 
-promise.textMatch(/\/이슈/)
+promise.textMatch(/\/issue/)
     .then((model) => {
         bot.sendMessage(model.chatId, message.issue)
     });
 
-// /다운로드 https://www.youtube.com/watch?v=OPMZTg1k8r0
-promise.textMatch(/\/다운로드 (.+)/)
+promise.textMatch(/\/dl (.+)/)
     .then((model) => {
         let url = model.matchResult[1]
         let test = linkPattern.test(url)
@@ -87,10 +87,12 @@ promise.callbackQuery()
 
         if (type == 'audio') {
             bot.sendMessage(chatId, message.filereadyaudio)
-            bot.sendAudio(chatId, path)
+            return bot.sendAudio(chatId, path)
+                .then((data) => fs.unlinkSync(path))
         } else {
             bot.sendMessage(chatId, message.filereadyvideo)
-            bot.sendVideo(chatId, path)
+            return bot.sendVideo(chatId, path)
+                .then((data) => fs.unlinkSync(path))
         }
     })
     .catch((err) => {
