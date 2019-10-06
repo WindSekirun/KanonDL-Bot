@@ -15,22 +15,38 @@ const removeKeyboard = {
 promise.textMatch(/\/start/)
     .then((model) => {
         bot.sendMessage(model.chatId, message.introduction)
-    });
+    })
+    .catch((err) => {
+        console.log(err)
+        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+    })
 
 promise.textMatch(/\/help/)
     .then((model) => {
         bot.sendMessage(model.chatId, message.help)
-    });
+    })
+    .catch((err) => {
+        console.log(err)
+        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+    })
 
 promise.textMatch(/\/author/)
     .then((model) => {
         bot.sendMessage(model.chatId, message.author)
-    });
+    })
+    .catch((err) => {
+        console.log(err)
+        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+    })
 
 promise.textMatch(/\/issue/)
     .then((model) => {
         bot.sendMessage(model.chatId, message.issue)
-    });
+    })
+    .catch((err) => {
+        console.log(err)
+        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+    })
 
 promise.textMatch(/\/dl (.+)/)
     .then((model) => {
@@ -59,7 +75,11 @@ promise.textMatch(/\/dl (.+)/)
         } else {
             bot.sendMessage(model.chatId, message.linkerror);
         }
-    });
+    })
+    .catch((err) => {
+        console.log(err)
+        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+    })
 
 promise.callbackQuery()
     .then((model) => {
