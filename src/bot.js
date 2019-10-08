@@ -5,6 +5,7 @@ const message = require('../message.json');
 
 const bot = promise.TelegramBot
 const linkPattern = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
+const adminUserId = '47220554'
 
 const removeKeyboard = {
     reply_markup: {
@@ -18,7 +19,7 @@ promise.textMatch(/\/start/)
     })
     .catch((err) => {
         console.log(err)
-        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+        bot.sendMessage(adminUserId, `Something happen weird... log: ${err}`)
     })
 
 promise.textMatch(/\/help/)
@@ -27,7 +28,7 @@ promise.textMatch(/\/help/)
     })
     .catch((err) => {
         console.log(err)
-        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+        bot.sendMessage(adminUserId, `Something happen weird... log: ${err}`)
     })
 
 promise.textMatch(/\/author/)
@@ -36,7 +37,7 @@ promise.textMatch(/\/author/)
     })
     .catch((err) => {
         console.log(err)
-        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+        bot.sendMessage(adminUserId, `Something happen weird... log: ${err}`)
     })
 
 promise.textMatch(/\/issue/)
@@ -45,7 +46,7 @@ promise.textMatch(/\/issue/)
     })
     .catch((err) => {
         console.log(err)
-        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+        bot.sendMessage(adminUserId, `Something happen weird... log: ${err}`)
     })
 
 promise.textMatch(/\/dl (.+)/)
@@ -78,7 +79,7 @@ promise.textMatch(/\/dl (.+)/)
     })
     .catch((err) => {
         console.log(err)
-        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+        bot.sendMessage(adminUserId, `Something happen weird... log: ${err}`)
     })
 
 promise.callbackQuery()
@@ -100,24 +101,24 @@ promise.callbackQuery()
             return wrapper.downloadVideo(chatId, url)
         }
     })
-    .then((model) => {
+    .then(async (model) => {
         const chatId = model.chatId;
         const type = model.type;
         const path = model.path;
 
         if (type == 'audio') {
             bot.sendMessage(chatId, message.filereadyaudio)
-            return bot.sendAudio(chatId, path)
-                .then((data) => fs.unlinkSync(path))
+            const data = await bot.sendAudio(chatId, path);
+            return fs.unlinkSync(path);
         } else {
             bot.sendMessage(chatId, message.filereadyvideo)
-            return bot.sendVideo(chatId, path)
-                .then((data) => fs.unlinkSync(path))
+            const data_1 = await bot.sendVideo(chatId, path);
+            return fs.unlinkSync(path);
         }
     })
     .catch((err) => {
         console.log(err)
-        bot.sendMessage('47220554', `Something happen weird... log: ${err}`)
+        bot.sendMessage(adminUserId, `Something happen weird... log: ${err}`)
     })
 
 
