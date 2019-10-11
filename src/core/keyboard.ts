@@ -56,7 +56,8 @@ export function sendKeyboard(chatId: number, message: string, options: TelegramB
 
             if (autoRemove) {
                 let options = new EditMessageReplyMarkupOptions()
-                options.inline_message_id = query.inline_message_id
+                options.chat_id = chatId
+                options.message_id = messageId
                 editMessageReplyMarkup(options)
             }
         };
@@ -86,6 +87,11 @@ export function sendKeyboard(chatId: number, message: string, options: TelegramB
 
 export function editMessageReplyMarkup(options: EditMessageReplyMarkupOptions) {
     console.log(options)
+
+    if (options.inline_message_id = '' && (options.chat_id == '' || options.chat_id == 0) && options.message_id == 0) {
+        // ignore empty options
+        return;
+    }
 
     bot.editMessageReplyMarkup(new InlineKeyboardMarkup(), options)
         .catch((err) => {
