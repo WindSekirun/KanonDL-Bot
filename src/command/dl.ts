@@ -72,14 +72,16 @@ export class Dl extends BotCommand {
             })
             .then(async (tuple: [string, number, string]) => {
                 if (tuple == undefined) return;
-                
+
                 if (tuple[0] == MOVIE_KR) {
                     bot.sendMessage(tuple[1], messages.fileready.format(MOVIE_KR))
                     const data = await SendFile.sendVideo(chatId, tuple[2]);
+                    bot.sendMessage(chatId, messages.completeseeyouagain)
                     return fs.unlinkSync(tuple[2]);
                 } else if (tuple[0] == AUDIO_KR) {
                     bot.sendMessage(tuple[1], messages.fileready.format(AUDIO_KR))
                     const data = await SendFile.sendAudio(chatId, tuple[2]);
+                    bot.sendMessage(chatId, messages.completeseeyouagain)
                     return fs.unlinkSync(tuple[2]);
                 }
             })

@@ -12,7 +12,9 @@ export let bot = new TelegramBot(settings.BOT_TOKEN, {filepath: false})
 
 export let sendErrorAdmin = (err: Error) => {
     console.log(err)
-    bot.sendMessage(settings.ADMIN_USER_ID, `이상한 흔적이 발견되었어요. : ${err}`)
+    if (settings.ADMIN_USER_ID != "") {
+        bot.sendMessage(settings.ADMIN_USER_ID, `이상한 흔적이 발견되었어요. : ${err}`)
+    }
 }
 
 export function start() {
