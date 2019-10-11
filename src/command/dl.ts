@@ -4,7 +4,8 @@ import {
     BotCommand
 } from '../core/botcommand'
 import {
-    bot, sendErrorAdmin
+    bot,
+    sendErrorAdmin
 } from '../core/bot';
 import * as messages from '../../message.json';
 import * as Keyboard from '../core/keyboard';
@@ -19,11 +20,17 @@ const AUDIO_KR = messages.audio
 
 export class Dl extends BotCommand {
     matchRegex: RegExp = LINK_PATTERN
+    subMatchRegex: RegExp = /\/dl (.+)/
 
     onMatch(message: TelegramBot.Message, matchResult: RegExpMatchArray): void {
-        let url = matchResult[0];
+        let url = this.subMatchRegex.test(message.text) ? matchResult[1] : matchResult[0]
         let test = LINK_PATTERN.test(url);
         let chatId = message.chat.id;
+
+        if (!test) {
+            bot.sendMessage(chatId, messages.linkerror)
+            return;
+        }
 
         let options = new Keyboard.SendMessageOptions()
         options.reply_to_message_id = message.message_id
@@ -42,11 +49,11 @@ export class Dl extends BotCommand {
                     bot.sendMessage(chatId, messages.ackready.format(AUDIO_KR));
                     return [AUDIO_KR, chatId, url]
                 }
-            })
-            .catch((err: Error) => {
+            }, (err) => {
                 // 타임아웃을 처리해야 될 때 
                 console.log(err)
                 bot.sendMessage(chatId, messages.keyboardtimeout)
+                return ['', 0, url]
             })
             .then((tuple: [string, number, string]) => {
                 if (tuple[0] == MOVIE_KR) {
@@ -54,14 +61,13 @@ export class Dl extends BotCommand {
                 } else if (tuple[0] == AUDIO_KR) {
                     return YoutubeDLWrapper.downloadAudio(tuple)
                 }
-            })
-            .catch((tuple: [string, number, string]) => {
+            }, (tuple: [string, number, string]) => {
                 // TODO: 추출에 실패했을 때 (니코니코 등)
                 bot.sendMessage(tuple[1], messages.usecompatmode)
                 if (tuple[0] == MOVIE_KR) {
 
                 } else if (tuple[0] == AUDIO_KR) {
-                    
+
                 }
             })
             .then(async (tuple: [string, number, string]) => {
