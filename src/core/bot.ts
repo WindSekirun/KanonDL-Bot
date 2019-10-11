@@ -8,7 +8,7 @@ Promise.config({
     cancellation: true
 });
 
-export let bot = new TelegramBot(settings.BOT_TOKEN)
+export let bot = new TelegramBot(settings.BOT_TOKEN, {filepath: false})
 
 export let sendErrorAdmin = (err: Error) => {
     console.log(err)

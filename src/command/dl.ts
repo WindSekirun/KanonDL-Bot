@@ -9,6 +9,7 @@ import {
 import * as messages from '../../message.json';
 import * as Keyboard from '../core/keyboard';
 import * as YoutubeDLWrapper from '../core/youtubedl'
+import * as SendFile from '../core/sendfile'
 
 const LINK_PATTERN = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
 const CALLBACK_MOVIE = "movie:deabda26-1ab1-472a-a30e-a926772826e3"
@@ -17,17 +18,12 @@ const MOVIE_KR = messages.movie
 const AUDIO_KR = messages.audio
 
 export class Dl extends BotCommand {
-    matchRegex: RegExp = /\/dl (.+)/
+    matchRegex: RegExp = LINK_PATTERN
 
     onMatch(message: TelegramBot.Message, matchResult: RegExpMatchArray): void {
-        let url = matchResult[1];
+        let url = matchResult[0];
         let test = LINK_PATTERN.test(url);
         let chatId = message.chat.id;
-
-        if (!test) {
-            bot.sendMessage(message.chat.id, messages.linkerror);
-            return;
-        }
 
         let options = new Keyboard.SendMessageOptions()
         options.reply_to_message_id = message.message_id
@@ -71,11 +67,11 @@ export class Dl extends BotCommand {
             .then(async (tuple: [string, number, string]) => {
                 if (tuple[0] == MOVIE_KR) {
                     bot.sendMessage(tuple[1], messages.fileready.format(MOVIE_KR))
-                    const data = await bot.sendVideo(chatId, tuple[2]);
+                    const data = await SendFile.sendVideo(chatId, tuple[2]);
                     return fs.unlinkSync(tuple[2]);
                 } else if (tuple[0] == AUDIO_KR) {
                     bot.sendMessage(tuple[1], messages.fileready.format(AUDIO_KR))
-                    const data = await bot.sendAudio(chatId, tuple[2]);
+                    const data = await SendFile.sendAudio(chatId, tuple[2]);
                     return fs.unlinkSync(tuple[2]);
                 }
             })
