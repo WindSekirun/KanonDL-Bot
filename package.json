@@ -1,11 +1,22 @@
 {
   "name": "kanondl-bot",
   "version": "0.0.1",
-  "description": "Telegram Bot with download video/audio from Youtube, niconico",
-  "main": "src/app.js",
+  "description": "Telegram Bot with download ~~video~~/audio from Youtube, niconico and supported site",
+  "main": "index.js",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.30.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.6.4",
+    "youtube-dl": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/bluebird": "^3.5.27",
+    "@types/node-telegram-bot-api": "^0.31.1",
+    "@types/youtube-dl": "^1.12.2"
+  },
   "scripts": {
-    "start": "node src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "sh start.sh",
+    "build": "tsc src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -17,8 +28,8 @@
     "url": "https://github.com/WindSekirun/KanonDL-Bot/issues"
   },
   "homepage": "https://github.com/WindSekirun/KanonDL-Bot#readme",
-  "dependencies": {
-    "node-telegram-bot-api": "^0.30.0",
-    "youtube-dl": "^2.0.1"
-  }
+  "keywords": [
+    "youtube-dl",
+    "telegram-bot"
+  ]
 }

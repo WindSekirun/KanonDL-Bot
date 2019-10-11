@@ -1,14 +1,16 @@
 {
-    "introduction": "Happy, Lucky, Smile, Yay! 👋 \n\nKanonBot은 Youtube 등 여러 곳에서 영상/음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n /dl 링크 로 시작할 수 있어요.\n도움말을 보시려면 /help 을 입력해주세요.",
+    "introduction": "Happy, Lucky, Smile, Yay! 👋\n\n안녕하세요, @{0} 님! \n\nKanonBot은 Youtube 등 여러 곳에서 영상/음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n /dl 링크 로 시작할 수 있어요.\n도움말을 보시려면 /help 을 입력해주세요.",
     "help": "Happy, Lucky, Smile, Yay! 👋 \n\nKanonBot은 Youtube 등 여러 곳에서 영상음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n/dl - 링크 다운로드 하기\n/help - 도움말 보기\n/author - 제작자 정보 보기\n/issue - 이슈 보내기\n",
     "author": "제작자 정보는 다음과 같아요. 👩‍💻 Pyxis (WindSekirun), @WindSekirun, windsekirun@gmail.com",
     "issue": "이슈트래커 https://github.com/WindSekirun/KanonDL-Bot/issues 를 이용하시거나, 직접 제작자 @WindSekirun 에 문의주세요.",
     "linkerror": "유효한 링크가 아닌 것 같아요. 다시 확인해주세요! 🙊",
-    "ackreadyaudio": "좋아요, 음악 다운로드를 시작할게요! 😘",
-    "ackreadyvideo": "좋아요, 영상 다운로드를 시작할게요! 😘",
+    "ackready": "좋아요, {0} 다운로드를 시작할게요! 😘",
     "selectdownload": "다운로드 받을 형태를 선택해주세요 👐",
-    "filereadyaudio": "음악이 준비되었어요. 바로 전송할게요! 👍",
-    "filereadyvideo": "영상이 준비되었어요. 바로 전송할게요! 👍",
+    "fileready": "{0}이 준비되었어요. 바로 전송할게요! 👍",
     "wantmovie": "🍿 영상을 받고 싶어요!",
-    "wantmusic": "🎵 음악을 받고 싶어요!"
+    "wantmusic": "🎵 음악을 받고 싶어요!",
+    "keyboardtimeout": "오랜 시간동안 입력하지 않아 취소되었어요. 다시 시도해주세요. 🙋‍♀️",
+    "usecompatmode": "자동 변환을 지원하지 않는 사이트로 보여요. Compat 모드로 다운로드를 시작할게요! ️😘",
+    "movie": "영상",
+    "audio": "음악"
 }

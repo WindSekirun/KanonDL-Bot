@@ -1,0 +1,3 @@
+import TelegramBot = require('node-telegram-bot-api')
+import TelegramBot = require('node-telegram-bot-api')
+import TelegramBot = require('node-telegram-bot-api')
