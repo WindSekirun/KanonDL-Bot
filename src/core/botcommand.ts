@@ -3,7 +3,7 @@ import * as settings from '../../settings.json';
 
 export abstract class BotCommand {
     abstract matchRegex: RegExp;
-    subMatchRegex: RegExp;
+    subMatchRegex: RegExp = null;
     
     abstract onMatch(message: TelegramBot.Message, match: RegExpMatchArray): void
 

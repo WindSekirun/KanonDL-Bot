@@ -1,6 +1,6 @@
 {
     "introduction": "Happy, Lucky, Smile, Yay! 👋\n\n안녕하세요, @{0} 님! \n\nKanonBot은 Youtube 등 여러 곳에서 영상/음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n 링크를 전달해주시면 시작할 수 있어요.\n도움말을 보시려면 /help 을 입력해주세요.",
-    "help": "Happy, Lucky, Smile, Yay! 👋 \n\nKanonBot은 Youtube 등 여러 곳에서 영상음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n",
+    "help": "Happy, Lucky, Smile, Yay! 👋\n\n안녕하세요, @{0} 님!\n\nKanonBot은 Youtube 등 여러 곳에서 영상/음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n[사용 방법]\n영상 사이트의 링크를 주시거나, /dl 링크로 전달하는 것으로 시작할 수 있어요.\n\n예시 방법:\nhttps://www.youtube.com/watch?v=OPMZTg1k8r0\n/dl https://www.youtube.com/watch?v=OPMZTg1k8r0\n\n[이슈/제안]\nKanonBot의 이슈 트래커는 https://github.com/WindSekirun/KanonDL-Bot/issues 이고, 직접 @WindSekirun 에 문의하셔도 되요.\n\n[제작자 정보]\n@WindSekirun\nwindsekirun@gmail.com",
     "linkerror": "유효한 링크가 아닌 것 같아요. 다시 확인해주세요! 🙊",
     "ackready": "좋아요, {0} 다운로드를 시작할게요! 😘",
     "selectdownload": "다운로드 받을 형태를 선택해주세요 👐",

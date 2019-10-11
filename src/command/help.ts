@@ -7,6 +7,6 @@ export class Help extends BotCommand {
     matchRegex: RegExp = /\/help/
     
     onMatch(message: TelegramBot.Message, match: RegExpMatchArray): void {
-        bot.sendMessage(message.chat.id, messages.help)
+        bot.sendMessage(message.chat.id, messages.help.format(message.chat.username))
     }
 }
