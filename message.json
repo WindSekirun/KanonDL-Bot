@@ -1,5 +1,5 @@
 {
-    "introduction": "Happy, Lucky, Smile, Yay! 👋 \n\nKanonBot은 Youtube 등 여러 곳에서 영상/음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n /dl 링크 로 시작할 수 있어요.\n도움말을 보시려면 /help 을 입력해주세요.",
+    "introduction": "Happy, Lucky, Smile, Yay! 👋\n\n안녕하세요, @{0} 님! \n\nKanonBot은 Youtube 등 여러 곳에서 영상/음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n /dl 링크 로 시작할 수 있어요.\n도움말을 보시려면 /help 을 입력해주세요.",
     "help": "Happy, Lucky, Smile, Yay! 👋 \n\nKanonBot은 Youtube 등 여러 곳에서 영상음악 파일을 다운받을 수 있도록 하는 Bot이에요.\n\n/dl - 링크 다운로드 하기\n/help - 도움말 보기\n/author - 제작자 정보 보기\n/issue - 이슈 보내기\n",
     "author": "제작자 정보는 다음과 같아요. 👩‍💻 Pyxis (WindSekirun), @WindSekirun, windsekirun@gmail.com",
     "issue": "이슈트래커 https://github.com/WindSekirun/KanonDL-Bot/issues 를 이용하시거나, 직접 제작자 @WindSekirun 에 문의주세요.",
