@@ -16,6 +16,7 @@ export let sendErrorAdmin = (err: Error) => {
 }
 
 export function start() {
+    console.log('Starting KanonBot...')
     bot.startPolling();
 }
 
@@ -24,5 +25,6 @@ bot.addListener("polling_error", (err) => {
     console.log(err);
 })
 
+// commands.ts file is generated for each run. Do not modify it manually.
 import * as commands from './commands'
-commands.start
+commands.onText(bot)
