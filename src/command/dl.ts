@@ -62,7 +62,7 @@ export class Dl extends BotCommand {
                     return YoutubeDLWrapper.downloadAudio(tuple)
                 }
             }, (tuple: [string, number, string]) => {
-                // TODO: 추출에 실패했을 때 (니코니코 등)
+                // TODO: 추출에 실패했을 때
                 bot.sendMessage(tuple[1], messages.usecompatmode)
                 if (tuple[0] == MOVIE_KR) {
 
