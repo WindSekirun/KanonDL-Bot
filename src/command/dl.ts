@@ -50,7 +50,8 @@ export class Dl extends BotCommand {
         
                 return Keyboard.sendKeyboard(message.chat.id, messages.selectdownload, options, true)
             }, (err) => {
-                // 정보 추출에 실패했을 때
+                bot.sendMessage(message.chat.id, messages.notrespondsocket)
+                return;
             })
             .then((query: TelegramBot.CallbackQuery) => {
                 let callbackData = query.data;

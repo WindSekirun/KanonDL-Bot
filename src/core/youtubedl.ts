@@ -10,7 +10,7 @@ const AUDIO_KR = messages.audio
 export function extractInfo(url: string) {
     return new Promise<Media.Info>((resolve, reject) => {
         // skip download and get informaiton into single-line json
-        youtubedl.exec(url, ['-s', '-J'], {}, (err: any, output: string[]) => {
+        youtubedl.exec(url, ['-s', '-J', '--socket-timeout', '10'], {}, (err: any, output: string[]) => {
             if (err) {
                 if (settings.DEBUG_MODE) {
                     console.log(err)

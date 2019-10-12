@@ -12,5 +12,6 @@
     "completeseeyouagain": "전송이 완료된 것 같아요. 다음에 또 봐요! 👋",
     "movie": "영상",
     "audio": "음악",
-    "playlistnotsupport": "재생목록 요청하신 것 같아요. 😱 아직까지 KanonBot은 재생목록을 지원하지 않아요. 다른 링크로 시도해주세요! 😉"
+    "playlistnotsupport": "재생목록 요청하신 것 같아요. 😱 아직까지 KanonBot은 재생목록을 지원하지 않아요. 다른 링크로 시도해주세요! 😉",
+    "notrespondsocket": "상대방 사이트가 응답하지 않는 것 같아요. 😱 잠시 후에 다시 시도해주세요. 만일 이 현상이 지속적으로 일어난다면 링크와 함께 @WindSekirun 에 전달해주세요."
 }
