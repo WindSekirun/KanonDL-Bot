@@ -28,7 +28,7 @@ EOT
 done
 
 cat >> "$target" <<EOT 
-
+ 
 export function onText(bot: TelegramBot) {
 EOT
 
@@ -44,6 +44,10 @@ done
 cat >> "$target" <<EOT 
 }
 EOT
+
+## Add environment variables which needed
+### For details, https://github.com/yagop/node-telegram-bot-api/issues/319
+env NTBA_FIX_319 1
 
 echo "KanonBot is Ready!"
 

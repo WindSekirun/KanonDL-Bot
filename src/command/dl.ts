@@ -11,7 +11,7 @@ import * as messages from '../../message.json';
 import * as Keyboard from '../core/keyboard';
 import * as YoutubeDLWrapper from '../core/youtubedl'
 import * as SendFile from '../core/sendfile'
-import youtubedl = require('youtube-dl');
+import { Media } from '../core/models/media';
 
 const LINK_PATTERN = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
 const CALLBACK_MOVIE = "movie:deabda26-1ab1-472a-a30e-a926772826e3"
@@ -34,7 +34,13 @@ export class Dl extends BotCommand {
         }
         
         YoutubeDLWrapper.extractInfo(url)
-            .then((info) => {
+            .then((info: Media.Info) => {
+                console.log(info)
+                if (info.extractor.includes('playlist')) {
+                    bot.sendMessage(message.chat.id, messages.playlistnotsupport)
+                    return;
+                }
+
                 let options = new Keyboard.SendMessageOptions()
                 options.reply_to_message_id = message.message_id
                 options.reply_markup = Keyboard.addInlineKeyboard(
