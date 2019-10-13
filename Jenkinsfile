@@ -32,17 +32,6 @@ pipeline {
                 }
             }
         }
-        stage('Clean docker image') {
-            steps{
-                script {
-                    try {
-                        sh "docker rmi $registry"
-                    } catch (Exception e) {
-                        echo err.getMessage()
-                    }
-                }
-            }
-        }
      }
     post {
         always {
