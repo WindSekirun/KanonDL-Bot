@@ -13,9 +13,6 @@ This bot contains these dependencies.
 퍼블릭 릴리즈 전 해야될 작업들
 
 * Compat 모드 붙이기
-* link 검사 부분을 extractor_info 태워서 검사, youtube:playlist 예외처리 (지원하지 않을 스펙)
-* Jenkins 체크
-* Docker 배포 및 UzukiLive 서버 업로드 
 
 퍼블릭 릴리즈 후 해도 되는 작업들 (우선순위 낮음)
 
