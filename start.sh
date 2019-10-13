@@ -1,4 +1,16 @@
 #!/bin/bash
+for i in "$@"
+do
+case $i in
+    --disable-auto-start)
+    DISABLEAUTOSTART=YES
+    ;;
+    *)
+            # unknown option
+    ;;
+esac
+done
+
 target="src/core/commands.ts"
 
 echo "Preparing KanonBot..."
@@ -45,10 +57,8 @@ cat >> "$target" <<EOT
 }
 EOT
 
-## Add environment variables which needed
-### For details, https://github.com/yagop/node-telegram-bot-api/issues/319
-env NTBA_FIX_319 1
-
 echo "KanonBot is Ready!"
 
-ts-node src/index.ts
+if [[ ! $DISABLEAUTOSTART =~ ^(YES)$ ]]; then 
+  ts-node src/index.ts
+fi

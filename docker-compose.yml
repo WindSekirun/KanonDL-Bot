@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  kokorobot:
+    image: windsekirun/kanondlbot
+    restart: always
+    container_name: kanondlbot
+    command: -update
+    environment:
+      - NTBA_FIX_319=1

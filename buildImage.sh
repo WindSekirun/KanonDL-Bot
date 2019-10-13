@@ -1,0 +1,1 @@
+docker build -t windsekirun/kanondlbot --build-arg VCS_REF=`git rev-parse --short HEAD` .
