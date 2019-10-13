@@ -75,13 +75,15 @@ export class Dl extends BotCommand {
                     return YoutubeDLWrapper.downloadAudio(tuple)
                 }
             }, (tuple: [string, number, string]) => {
-                // TODO: 추출에 실패했을 때
-                bot.sendMessage(tuple[1], messages.usecompatmode)
-                if (tuple[0] == MOVIE_KR) {
+                bot.sendMessage(message.chat.id, messages.notrespondsocket)
+                return;
+                // // TODO: 추출에 실패했을 때
+                // bot.sendMessage(tuple[1], messages.usecompatmode)
+                // if (tuple[0] == MOVIE_KR) {
 
-                } else if (tuple[0] == AUDIO_KR) {
+                // } else if (tuple[0] == AUDIO_KR) {
 
-                }
+                // }
             })
             .then(async (tuple: [string, number, string]) => {
                 if (tuple == undefined) return;

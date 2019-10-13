@@ -10,11 +10,6 @@ export class Info extends BotCommand {
     matchRegex: RegExp = /\/info (.+)/
     
     onMatch(message: TelegramBot.Message, match: RegExpMatchArray): void {
-        YoutubeDLWrapper.extractInfo(match[1])
-            .then((info: Media.Info) => {
-                console.log(info)
-            }, (err) => {
-                console.log(err)
-            })
+        bot.sendMessage(message.chat.id, messages.notsupportyet)
     }
 }
