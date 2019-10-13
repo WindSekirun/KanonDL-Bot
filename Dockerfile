@@ -10,4 +10,4 @@ RUN npm install
 
 COPY . .
 
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["./start.sh"]
