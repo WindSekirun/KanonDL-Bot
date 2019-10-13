@@ -28,35 +28,6 @@ npm install
 
 ### Disclamier
 ```
-# KanonDL-Bot
-
-(KR Only) TelegramBot with download video/audio from various site 
-This bot contains these dependencies.
-
-* node-youtube-dl https://github.com/przemyslawpluta/node-youtube-dl
-* Youtube-DL https://github.com/ytdl-org/youtube-dl
-* node-telegrambot-api https://github.com/yagop/node-telegram-bot-api
-
-## Todo
-
-퍼블릭 릴리즈 후 해도 되는 작업들 (우선순위 낮음)
-* Compat 모드 붙이기
-* 유투브일 경우 검색 모드
-
-## 빌드
-
-실행하기 전 ffmpeg의 바이너리가 필요합니다. os에 따라 설치해주세요.
-```
-apt install ffmpeg // ubuntu
-choco install ffmpeg // chocolately
-```
-
-```
-npm install
-./start.sh
-```
-
-## Disclamier
 KanonBot을 이용하기 위해 송신한 데이터(예: URL)에 대한 책임은 모두 사용자에게 있습니다.
 
 KanonBot 서비스 이용 법적 정당성을 확인하는 것은 모두 사용자의 책임으로 간주합니다.
