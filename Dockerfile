@@ -10,4 +10,5 @@ RUN npm install
 
 COPY . .
 
+RUN ["chmod", "+x", "./start.sh"]
 ENTRYPOINT ["./start.sh"]
