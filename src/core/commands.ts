@@ -4,10 +4,12 @@
 import TelegramBot = require('node-telegram-bot-api')
 import { Dl } from '../command/dl';
 import { Help } from '../command/help';
+import { Info } from '../command/info';
 import { Start } from '../command/start';
-
+ 
 export function onText(bot: TelegramBot) {
     new Dl().textMatch(bot);
     new Help().textMatch(bot);
+    new Info().textMatch(bot);
     new Start().textMatch(bot);
 }

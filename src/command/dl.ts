@@ -11,6 +11,7 @@ import * as messages from '../../message.json';
 import * as Keyboard from '../core/keyboard';
 import * as YoutubeDLWrapper from '../core/youtubedl'
 import * as SendFile from '../core/sendfile'
+import { Media } from '../core/models/media';
 
 const LINK_PATTERN = /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
 const CALLBACK_MOVIE = "movie:deabda26-1ab1-472a-a30e-a926772826e3"
@@ -31,15 +32,27 @@ export class Dl extends BotCommand {
             bot.sendMessage(chatId, messages.linkerror)
             return;
         }
+        
+        YoutubeDLWrapper.extractInfo(url)
+            .then((info: Media.Info) => {
+                console.log(info)
+                if (info.extractor.includes('playlist')) {
+                    bot.sendMessage(message.chat.id, messages.playlistnotsupport)
+                    return;
+                }
 
-        let options = new Keyboard.SendMessageOptions()
-        options.reply_to_message_id = message.message_id
-        options.reply_markup = Keyboard.addInlineKeyboard(
-            Keyboard.makeButton(messages.wantmovie, CALLBACK_MOVIE),
-            Keyboard.makeButton(messages.wantmusic, CALLBACK_MUSIC)
-        )
-
-        Keyboard.sendKeyboard(message.chat.id, messages.selectdownload, options, true)
+                let options = new Keyboard.SendMessageOptions()
+                options.reply_to_message_id = message.message_id
+                options.reply_markup = Keyboard.addInlineKeyboard(
+                    Keyboard.makeButton(messages.wantmovie, CALLBACK_MOVIE),
+                    Keyboard.makeButton(messages.wantmusic, CALLBACK_MUSIC)
+                )
+        
+                return Keyboard.sendKeyboard(message.chat.id, messages.selectdownload, options, true)
+            }, (err) => {
+                bot.sendMessage(message.chat.id, messages.notrespondsocket)
+                return;
+            })
             .then((query: TelegramBot.CallbackQuery) => {
                 let callbackData = query.data;
                 if (callbackData.includes(CALLBACK_MOVIE)) {
