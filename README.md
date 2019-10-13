@@ -7,6 +7,8 @@ This bot contains these dependencies.
 * Youtube-DL https://github.com/ytdl-org/youtube-dl
 * node-telegrambot-api https://github.com/yagop/node-telegram-bot-api
 
+사용해보기: @Kanondl_bot
+
 ## Todo
 
 퍼블릭 릴리즈 후 해도 되는 작업들 (우선순위 낮음)
