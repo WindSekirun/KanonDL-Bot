@@ -9,7 +9,9 @@ RUN rm -rf /var/lib/apt/list/* && apt-get update && apt-get install nodejs npm f
 COPY package*.json ./
 COPY . .
 
-RUN npm install -g typescript ts-node node-telegram-bot-api youtube-dl
+RUN npm install typescript ts-node node-telegram-bot-api youtube-dl
+RUN npm install @types/bluebird @types/node-telegram-bot-api @types/youtube-dl
+RUN npm install
 
 RUN ["chmod", "+x", "./start.sh"]
 ENTRYPOINT ["./start.sh"]
