@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  kokorobot:
+  kanondlbot:
     image: windsekirun/kanondlbot
     restart: always
     container_name: kanondlbot
