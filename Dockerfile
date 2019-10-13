@@ -1,12 +1,10 @@
-FROM node:12-alpine
+FROM ubuntu
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN apk update 
-RUN apk add --no-cache ca-certificates ffmpeg opus libsodium-dev build-base youtube-dl
-RUN apk add --no-cache --virtual .build-deps gcc git libffi-dev make musl-dev 
+RUN rm -rf /var/lib/apt/list/* && apt-get update && apt-get install nodejs npm ffmpeg
 
 RUN npm install
 
