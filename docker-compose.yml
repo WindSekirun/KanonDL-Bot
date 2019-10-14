@@ -8,3 +8,8 @@ services:
     command: -update
     environment:
       - NTBA_FIX_319=1
+      - BOT_TOKEN=730182561:AAGnYRSAir_pSMr0ToV3idHjnDhTHYCshmM
+      - ADMIN_USER_ID=-1001363414751
+      - DEBUG_MODE=true
+      - LOG_MESSAGE_BODY=true
+      - TIMEOUT_MILLIS=10000

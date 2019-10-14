@@ -1,5 +1,5 @@
 import youtubedl = require('youtube-dl');
-import * as settings from '../json/settings.json';
+import * as settings from './env'
 import * as messages from '../json/message.json';
 import {Media} from './models/media'
 
@@ -30,7 +30,7 @@ export function downloadVideo(tuple: [string, number, string]) {
     return new Promise<[string, number, string]>((resolve, reject) => {
         let dlTimeout = setTimeout(() => {
             reject(tuple)
-        }, settings.KEYBOARD_TIMEOUT)
+        }, settings.TIMEOUT_MILLIS)
     
         // Currently, sendVideo api supported <50MB mp4 file. 
         youtubedl.exec(tuple[2], ['-f', '(bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4)[filesize<48M]', '-o', output_path], {}, (err: Error, output: string[]) => {
@@ -58,7 +58,7 @@ export function downloadAudio(tuple: [string, number, string]) {
     return new Promise<[string, number, string]>((resolve, reject) => {
         let dlTimeout = setTimeout(() => {
             reject(tuple)
-        }, settings.KEYBOARD_TIMEOUT)
+        }, settings.TIMEOUT_MILLIS)
 
         youtubedl.exec(tuple[2], ['-f', 'bestaudio', '-o', output_path, '-x', '--audio-format', 'mp3'], {}, (err: Error, output: string[]) => {
             clearTimeout(dlTimeout)

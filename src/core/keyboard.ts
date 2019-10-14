@@ -2,7 +2,7 @@ import TelegramBot = require('node-telegram-bot-api');
 import {
     bot
 } from './bot';
-import * as settings from '../json/settings.json';
+import * as settings from './env'
 
 let callbackQueryListener = null;
 
@@ -80,7 +80,7 @@ export function sendKeyboard(chatId: number, message: string, options: TelegramB
                 options.message_id = messageId
                 editMessageReplyMarkup(options)
             }
-        }, settings.KEYBOARD_TIMEOUT)
+        }, settings.TIMEOUT_MILLIS)
 
         let keyboardMessage = await bot.sendMessage(chatId, message, options)
         messageId = keyboardMessage.message_id;
