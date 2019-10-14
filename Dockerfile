@@ -6,8 +6,9 @@ WORKDIR /usr/src/app
 RUN rm -rf /var/lib/apt/list/* && apt-get update && apt-get install nodejs npm ffmpeg -y
 
 ## copy files
-COPY package*.json ./
 COPY . .
+
+RUN ls -la
 
 RUN npm install
 
@@ -16,4 +17,7 @@ RUN ["sh", "./start.sh", "--disable-auto-start"]
 
 RUN npm run build
 
-ENTRYPOINT ["./start.sh"]
+RUN ls -la
+RUN ls -la built
+
+ENTRYPOINT ["npm", "run", "start-js"]
