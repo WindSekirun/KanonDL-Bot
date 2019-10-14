@@ -9,12 +9,6 @@ This bot contains these dependencies.
 
 사용해보기: @Kanondl_bot
 
-## Todo
-
-퍼블릭 릴리즈 후 해도 되는 작업들 (우선순위 낮음)
-* Compat 모드 붙이기
-* 유투브일 경우 검색 모드
-
 ## 빌드
 
 실행하기 전 ffmpeg의 바이너리가 필요합니다. os에 따라 설치해주세요.
