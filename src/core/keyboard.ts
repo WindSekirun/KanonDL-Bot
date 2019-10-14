@@ -51,6 +51,8 @@ export function sendKeyboard(chatId: number, message: string, options: TelegramB
                 console.log(query)
             }
 
+            clearTimeout(keyboardTimeout)
+        
             bot.removeListener('callback_query', callbackQueryListener)
             resolve(query);
 
@@ -68,7 +70,7 @@ export function sendKeyboard(chatId: number, message: string, options: TelegramB
         bot.addListener('callback_query', callbackQueryListener)
 
         // set timeout when user doesn't callback after some time.
-        setTimeout(() => {
+        let keyboardTimeout = setTimeout(() => {
             bot.removeListener('callback_query', callbackQueryListener)
             reject(new Error("Timeout."))
 
