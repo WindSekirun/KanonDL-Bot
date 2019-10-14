@@ -28,8 +28,13 @@ export function extractInfo(url: string) {
 
 export function downloadVideo(tuple: [string, number, string]) {
     return new Promise<[string, number, string]>((resolve, reject) => {
+        let dlTimeout = setTimeout(() => {
+            reject(tuple)
+        }, settings.KEYBOARD_TIMEOUT)
+    
         // Currently, sendVideo api supported <50MB mp4 file. 
         youtubedl.exec(tuple[2], ['-f', '(bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4)[filesize<48M]', '-o', output_path], {}, (err: Error, output: string[]) => {
+            clearTimeout(dlTimeout)
             if (err) {
                 if (settings.DEBUG_MODE) {
                     console.log(err)
@@ -51,7 +56,12 @@ export function downloadVideo(tuple: [string, number, string]) {
 
 export function downloadAudio(tuple: [string, number, string]) {
     return new Promise<[string, number, string]>((resolve, reject) => {
+        let dlTimeout = setTimeout(() => {
+            reject(tuple)
+        }, settings.KEYBOARD_TIMEOUT)
+
         youtubedl.exec(tuple[2], ['-f', 'bestaudio', '-o', output_path, '-x', '--audio-format', 'mp3'], {}, (err: Error, output: string[]) => {
+            clearTimeout(dlTimeout)
             if (err) {
                 if (settings.DEBUG_MODE) {
                     console.log(err)
