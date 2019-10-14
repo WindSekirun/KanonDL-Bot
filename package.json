@@ -15,8 +15,9 @@
     "@types/youtube-dl": "^1.12.2"
   },
   "scripts": {
-    "start": "sh start.sh",
-    "build": "tsc src/index.ts"
+    "start-js": "node built/index.js",
+    "start-ts": "sh start.sh",
+    "build": "tsc"
   },
   "repository": {
     "type": "git",

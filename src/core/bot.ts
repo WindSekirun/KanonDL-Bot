@@ -1,6 +1,6 @@
 import Promise = require('bluebird');
 import TelegramBot = require('node-telegram-bot-api');
-import * as settings from '../../settings.json';
+import * as settings from '../json/settings.json';
 
 // Enable 'cancellation' into Promise
 // https://github.com/yagop/node-telegram-bot-api/issues/319

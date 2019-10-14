@@ -2,7 +2,7 @@ import TelegramBot = require('node-telegram-bot-api');
 import {
     bot
 } from './bot';
-import * as settings from '../../settings.json';
+import * as settings from '../json/settings.json';
 
 let callbackQueryListener = null;
 

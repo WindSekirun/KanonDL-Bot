@@ -7,7 +7,7 @@ import {
     bot,
     sendErrorAdmin
 } from '../core/bot';
-import * as messages from '../../message.json';
+import * as messages from '../json/message.json';
 import * as Keyboard from '../core/keyboard';
 import * as YoutubeDLWrapper from '../core/youtubedl'
 import * as SendFile from '../core/sendfile'

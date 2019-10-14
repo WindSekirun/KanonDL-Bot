@@ -2,9 +2,14 @@
     "compilerOptions": {
         "outDir": "./built",
         "allowJs": true,
-        "resolveJsonModule": true
+        "resolveJsonModule": true,
+        "sourceMap": true,
+        "moduleResolution": "node",
+        "rootDir": "src",
     },
-    "include": [
-        "./src/**/*"
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts",
+        "built"
     ]
 }

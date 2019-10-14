@@ -1,6 +1,6 @@
 import youtubedl = require('youtube-dl');
-import * as settings from '../../settings.json';
-import * as messages from '../../message.json';
+import * as settings from '../json/settings.json';
+import * as messages from '../json/message.json';
 import {Media} from './models/media'
 
 const output_path = __dirname + '../../downloads/%(title)s.%(ext)s';
