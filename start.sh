@@ -59,6 +59,6 @@ EOT
 
 echo "KanonBot is Ready!"
 
-if [[ ! $DISABLEAUTOSTART =~ ^(YES)$ ]]; then 
+if [[ ! $DISABLEAUTOSTART =~ ^YES$ ]]; then 
   ts-node src/index.ts
 fi
