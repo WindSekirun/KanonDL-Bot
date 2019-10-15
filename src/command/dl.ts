@@ -35,7 +35,6 @@ export class Dl extends BotCommand {
         
         YoutubeDLWrapper.extractInfo(url)
             .then((info: Media.Info) => {
-                console.log(info)
                 if (info.extractor.includes('playlist')) {
                     bot.sendMessage(message.chat.id, messages.playlistnotsupport)
                     return;
