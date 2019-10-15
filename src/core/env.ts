@@ -1,3 +1,5 @@
+import '../core/ext/string'
+
 export let BOT_TOKEN = process.env.BOT_TOKEN
 export let ADMIN_USER_ID = process.env.ADMIN_USER_ID
 export let DEBUG_MODE: boolean = process.env.DEBUG_MODE.toBoolean()
