@@ -18,6 +18,11 @@ export let sendErrorAdmin = (err: Error) => {
 }
 
 export function start() {
+    if (settings.BOT_TOKEN == "") {
+        console.log('Bot token not provided, cannot start KanonBot!')
+        return;
+    }
+    
     console.log('Starting KanonBot...')
     bot.startPolling();
 }
