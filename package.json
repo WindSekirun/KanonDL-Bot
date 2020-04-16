@@ -4,7 +4,7 @@
   "description": "Telegram Bot with download ~~video~~/audio from Youtube, niconico and supported site",
   "main": "index.js",
   "dependencies": {
-    "node-telegram-bot-api": "^0.30.0",
+    "node-telegram-bot-api": "^0.40.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4",
     "youtube-dl": "^2.0.1"
