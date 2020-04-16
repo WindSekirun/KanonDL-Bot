@@ -26,6 +26,9 @@ pipeline {
             }
         }
         stage('Deploy docker image') {
+            when {
+                expression { env.BRANCH_NAME == 'master' }
+            }
             steps {
                 withDockerRegistry([ credentialsId: registryCredential, url: "" ]) {
                     sh 'docker push $registry:latest'
