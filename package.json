@@ -10,8 +10,8 @@
     "youtube-dl": "^3.0.2"
   },
   "devDependencies": {
-    "@types/bluebird": "^3.5.30",
-    "@types/node-telegram-bot-api": "^0.31.1",
+    "@types/node-telegram-bot-api": "^0.40.3",
+     "@types/bluebird": "^3.5.30",
     "@types/youtube-dl": "^1.12.2"
   },
   "scripts": {
