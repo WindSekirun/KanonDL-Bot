@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@types/node-telegram-bot-api": "^0.40.3",
-     "@types/bluebird": "^3.5.30",
+     "@types/bluebird": "^3.5.31",
     "@types/youtube-dl": "^1.12.2"
   },
   "scripts": {
