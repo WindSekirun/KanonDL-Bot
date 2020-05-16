@@ -6,7 +6,7 @@
   "dependencies": {
     "node-telegram-bot-api": "^0.50.0",
     "ts-node": "^8.10.1",
-    "typescript": "^3.6.4",
+    "typescript": "^3.9.2",
     "youtube-dl": "^3.0.2"
   },
   "devDependencies": {
