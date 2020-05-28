@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "node-telegram-bot-api": "^0.50.0",
-    "ts-node": "^8.10.1",
+    "ts-node": "^8.10.2",
     "typescript": "^3.9.3",
     "youtube-dl": "^3.0.2"
   },
