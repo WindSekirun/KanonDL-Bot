@@ -12,7 +12,7 @@
   "devDependencies": {
     "@types/node-telegram-bot-api": "^0.50.2",
      "@types/bluebird": "^3.5.32",
-    "@types/youtube-dl": "^1.12.2"
+    "@types/youtube-dl": "^3.0.0"
   },
   "scripts": {
     "start-js": "node built/index.js",
